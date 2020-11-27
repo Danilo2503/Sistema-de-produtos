@@ -68,7 +68,7 @@ namespace Sistema_de_produtos
 
                             case 0:
                                 //Sair
-                                
+
                             break;    
                         }
 
@@ -76,7 +76,7 @@ namespace Sistema_de_produtos
                 
                 bool VerPreco(float promo){
 
-                    if (promo == 10)
+                    if (promo > 10)
                     {
                         Console.WriteLine("Parabéns,o produto está em promoção!");
                         return true;
@@ -89,9 +89,6 @@ namespace Sistema_de_produtos
 
         }
 
-        private static bool VerPreco(object promo)
-        {
-            throw new NotImplementedException();
-        }
+       
     }
 }
