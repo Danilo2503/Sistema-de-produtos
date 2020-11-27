@@ -4,11 +4,13 @@ namespace Sistema_de_produtos
 {
     class Program
     {
+        private static float promo;
+
         static void Main(string[] args)
         {   
             string[] nome = new string [10];
             float[] preco = new float [10];
-
+            
 
             Console.WriteLine("---------------------------------");
             Console.WriteLine("----Gerenciamento de Produtos----");
@@ -18,7 +20,7 @@ namespace Sistema_de_produtos
 
             do
             {
-                Console.WriteLine("Informe o preço do produto:");
+                Console.WriteLine("Informe o valor do produto:");
                 string produto = Console.ReadLine();
                 Promocao = VerPreco(promo);
             } while (!Promocao);
@@ -29,7 +31,7 @@ namespace Sistema_de_produtos
                 do
                 {
                     Console.WriteLine("Menu");
-                    Console.WriteLine("Selecione uma das opções abaixo:");
+                    Console.WriteLine("Selecione uma das seguintes opções:");
                     Console.WriteLine("[1] Cadastrar produtos");
                     Console.WriteLine("[2] Listar produtos");
                     Console.WriteLine("[3] Sair");
@@ -51,7 +53,7 @@ namespace Sistema_de_produtos
                                         preco [contador] = float.Parse(Console.ReadLine());
                                         contador++;
                                     }else{
-                                        Console.WriteLine("Erro no processo de cadastro.Produto inválido.");
+                                        Console.WriteLine("Produto inválido");
                                     }
                                 } while (escolha == 1);
                             break;
@@ -66,6 +68,7 @@ namespace Sistema_de_produtos
 
                             case 0:
                                 //Sair
+                                
                             break;    
                         }
 
@@ -73,11 +76,22 @@ namespace Sistema_de_produtos
                 
                 bool VerPreco(float promo){
 
-                    static void Promo(float promo){
-
+                    if (promo == 10)
+                    {
+                        Console.WriteLine("Parabéns,o produto está em promoção!");
+                        return true;
+                    }
+                    else{
+                        Console.WriteLine("Esse produto não está em promoção no momento");
+                        return false;
                     }
                 }
 
+        }
+
+        private static bool VerPreco(object promo)
+        {
+            throw new NotImplementedException();
         }
     }
 }
